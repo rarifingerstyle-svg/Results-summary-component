@@ -17,8 +17,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add your GitHub repository URL here](https://github.com/your-username/your-repo-name)
-- Live Site URL: [Add your Vercel / GitHub Pages URL here](https://your-project-name.vercel.app)
+- Solution URL: [GitHub repository URL here](https://github.com/rarifingerstyle-svg/Results-summary-component)
+- Live Site URL: [Vercel URL here](https://results-summary-component-nine-livid.vercel.app/)
 
 ## My process
 
