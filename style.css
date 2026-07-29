@@ -5,6 +5,12 @@
   --clr-green-teal: hsl(166, 100%, 37%);
   --clr-cobalt-blue: hsl(234, 85%, 45%);
 
+  /* Translucent Background Colors */
+  --bg-red-alpha: hsla(0, 100%, 67%, 0.08);
+  --bg-yellow-alpha: hsla(39, 100%, 56%, 0.08);
+  --bg-teal-alpha: hsla(166, 100%, 37%, 0.08);
+  --bg-blue-alpha: hsla(234, 85%, 45%, 0.08);
+
   /* Gradients */
   --grad-bg-start: hsl(252, 100%, 67%);
   --grad-bg-end: hsl(241, 81%, 54%);
@@ -16,6 +22,7 @@
   --clr-pale-blue: hsl(221, 100%, 96%);
   --clr-light-lavender: hsl(241, 100%, 89%);
   --clr-dark-gray-blue: hsl(224, 30%, 27%);
+  --clr-neutral-muted: hsl(224, 30%, 60%); /* Variabel warna baru */
 
   /* Typography */
   --ff-base: 'Hanken Grotesk', sans-serif;
@@ -30,7 +37,7 @@
   padding: 0;
 }
 
-/* Alternative for reduced motion preferences */
+/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms;
@@ -54,13 +61,12 @@ body {
 .results-container {
   background-color: var(--clr-white);
   width: 100%;
-  max-width: min(100%, 46rem); /* 736px */
+  max-width: min(100%, 46rem);
   display: flex;
   flex-direction: column;
   box-shadow: var(--box-shadow-card);
 }
 
-/* Media query menggunakan rem (700px = 43.75rem) */
 @media (min-width: 43.75rem) {
   .results-container {
     flex-direction: row;
@@ -73,8 +79,8 @@ body {
 .result-card {
   background: linear-gradient(to bottom, var(--grad-bg-start), var(--grad-bg-end));
   padding: clamp(1.5rem, 4vw, 2.5rem) clamp(2rem, 5vw, 3.5rem);
-  border-bottom-left-radius: 2rem;
-  border-bottom-right-radius: 2rem;
+  border-bottom-left-radius: clamp(1.5rem, 3vw, 2rem);
+  border-bottom-right-radius: clamp(1.5rem, 3vw, 2rem);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -117,20 +123,20 @@ body {
   color: var(--clr-light-lavender);
   font-size: clamp(0.875rem, 1.5vw, 1rem);
   opacity: 0.7;
-  margin-block-start: 0.25rem; /* Logical Property */
+  margin-block-start: clamp(0.2rem, 0.5vw, 0.3rem); /* Menggunakan clamp() */
 }
 
 .feedback-title {
   color: var(--clr-white);
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 700;
-  margin-block-end: 0.5rem; /* Logical Property */
+  margin-block-end: clamp(0.4rem, 1vw, 0.6rem); /* Menggunakan clamp() */
 }
 
 .feedback-desc {
   color: var(--clr-light-lavender);
   font-size: clamp(0.95rem, 1.5vw, 1.125rem);
-  max-width: 16rem;
+  max-width: min(100%, 16rem); /* Menggunakan min() */
 }
 
 /* Summary Card Section */
@@ -159,7 +165,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: clamp(0.75rem, 1.5vw, 1rem);
-  border-radius: 0.75rem;
+  border-radius: clamp(0.5rem, 1vw, 0.75rem);
   font-size: clamp(0.95rem, 1.2vw, 1rem);
 }
 
@@ -171,7 +177,7 @@ body {
 }
 
 .item-score {
-  color: hsl(224, 30%, 60%);
+  color: var(--clr-neutral-muted); /* Menggunakan variabel */
   font-weight: 700;
 }
 
@@ -181,22 +187,22 @@ body {
 
 /* Summary Item Colors */
 .summary-item.reaction {
-  background-color: hsla(0, 100%, 67%, 0.08);
+  background-color: var(--bg-red-alpha); /* Menggunakan variabel */
   color: var(--clr-light-red);
 }
 
 .summary-item.memory {
-  background-color: hsla(39, 100%, 56%, 0.08);
+  background-color: var(--bg-yellow-alpha); /* Menggunakan variabel */
   color: var(--clr-orangey-yellow);
 }
 
 .summary-item.verbal {
-  background-color: hsla(166, 100%, 37%, 0.08);
+  background-color: var(--bg-teal-alpha); /* Menggunakan variabel */
   color: var(--clr-green-teal);
 }
 
 .summary-item.visual {
-  background-color: hsla(234, 85%, 45%, 0.08);
+  background-color: var(--bg-blue-alpha); /* Menggunakan variabel */
   color: var(--clr-cobalt-blue);
 }
 
@@ -205,13 +211,13 @@ body {
   background-color: var(--clr-dark-gray-blue);
   color: var(--clr-white);
   border: none;
-  border-radius: 8rem;
+  border-radius: clamp(4rem, 10vw, 8rem);
   padding: clamp(0.875rem, 1.5vw, 1rem);
   font-family: var(--ff-base);
   font-size: clamp(1rem, 1.2vw, 1.125rem);
   font-weight: 700;
   cursor: pointer;
-  margin-block-start: auto; /* Logical Property */
+  margin-block-start: auto;
   transition: background-color 0.2s ease;
 }
 
@@ -224,7 +230,7 @@ body {
 .attribution {
   font-size: clamp(0.75rem, 1vw, 0.85rem);
   text-align: center;
-  padding-block: 1rem; /* Logical Property */
+  padding-block: clamp(0.75rem, 1.5vw, 1rem);
   color: var(--clr-dark-gray-blue);
 }
 
